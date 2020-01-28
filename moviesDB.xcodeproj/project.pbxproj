@@ -24,6 +24,7 @@
 		98EBBB9F23E0C852003107E7 /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBBB9E23E0C852003107E7 /* MoviesModel.swift */; };
 		98EBBBA123E0CEE6003107E7 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBBBA023E0CEE6003107E7 /* GenreModel.swift */; };
 		98EBBBA523E0D9E2003107E7 /* ListMoviesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBBBA423E0D9E2003107E7 /* ListMoviesNetwork.swift */; };
+		98EBBBA723E0DFF6003107E7 /* MovieHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBBBA623E0DFF6003107E7 /* MovieHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		98EBBB9E23E0C852003107E7 /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
 		98EBBBA023E0CEE6003107E7 /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
 		98EBBBA423E0D9E2003107E7 /* ListMoviesNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesNetwork.swift; sourceTree = "<group>"; };
+		98EBBBA623E0DFF6003107E7 /* MovieHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHeader.swift; sourceTree = "<group>"; };
 		A644E809F85754EDAA84C076 /* Pods_moviesDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moviesDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C7077A6AB27DEAB36300B6 /* Pods-moviesDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moviesDB.release.xcconfig"; path = "Target Support Files/Pods-moviesDB/Pods-moviesDB.release.xcconfig"; sourceTree = "<group>"; };
 		BE7CFA44D79959DA76CA976C /* Pods-moviesDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moviesDBTests.debug.xcconfig"; path = "Target Support Files/Pods-moviesDBTests/Pods-moviesDBTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				98EBBB9E23E0C852003107E7 /* MoviesModel.swift */,
 				98EBBBA023E0CEE6003107E7 /* GenreModel.swift */,
+				98EBBBA623E0DFF6003107E7 /* MovieHeader.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				98EBBB6A23E0C53D003107E7 /* moviesDB.xcdatamodeld in Sources */,
 				98EBBB6223E0C53D003107E7 /* SceneDelegate.swift in Sources */,
 				98EBBBA523E0D9E2003107E7 /* ListMoviesNetwork.swift in Sources */,
+				98EBBBA723E0DFF6003107E7 /* MovieHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
