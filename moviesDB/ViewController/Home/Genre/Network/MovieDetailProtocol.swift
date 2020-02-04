@@ -14,6 +14,7 @@ protocol MovieDetailView {
 }
 
 extension MovieDetailViewController: MovieDetailView {
+
     
     func onError() {
         print("gerou erro")
@@ -31,7 +32,6 @@ extension MovieDetailViewController: MovieDetailView {
                    }
                }
            }
-        
     }
     
 }

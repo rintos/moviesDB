@@ -11,6 +11,8 @@ import CoreData
 
 class MovieDAO: NSObject {
 
+    var movieFavoritList: [Movies] = []
+    
     var context: NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
@@ -18,23 +20,64 @@ class MovieDAO: NSObject {
     
     var managerOfResults:NSFetchedResultsController<Movies>?
     
-    static func saveMovie(_ movie: MoviesModel) {
+     func saveMovie(_ movie: MoviesModel) {
         
         var movieObject:NSManagedObject?
-        
-//        let entidade = NSEntityDescription.entity(forEntityName: "Tutorials", in: contexto)
-//        tutorial = NSManagedObject(entity: entidade!, insertInto: contexto)
+//        guard let id = UUID(uuidString: tutorialSave.id as! String) else { return }
+        let uuid = UUID().uuidString
+        let idCoredata = NSUUID(uuidString: uuid)
+
+        let entidade = NSEntityDescription.entity(forEntityName: "Movies", in: context)
+        movieObject = NSManagedObject(entity: entidade!, insertInto: context)
         
         print("\(movie.original_title)")
         
-        movieObject?.setValue(movie.id, forKey: "id_API")
-        movieObject?.setValue(movie.title, forKey: "title")
-        movieObject?.setValue(movie.overview, forKey: "overview")
-        movieObject?.setValue(movie.release_date, forKey: "release_date")
+        let id = String(movie.id)
+        let title = movie.title
+        let overview = movie.overview
+        let date = movie.release_date
+        let posterPath = movie.poster_path
         
         
         
-      //  updateContext()
+        movieObject?.setValue(id, forKey: "id_API")
+        movieObject?.setValue(title, forKey: "title")
+        movieObject?.setValue(overview, forKey: "overview")
+        movieObject?.setValue(date, forKey: "release_date")
+        movieObject?.setValue(posterPath, forKey: "poster_path")
+        movieObject?.setValue(idCoredata, forKey: "id")
+        
+//        movieObject?.setValue("234234234", forKey: "id_API")
+//        movieObject?.setValue("title", forKey: "title")
+//        movieObject?.setValue("overview", forKey: "overview")
+//        movieObject?.setValue("date", forKey: "release_date")
+//        movieObject?.setValue("temp", forKey: "id")
+//        movieObject?.setValue("posterPath", forKey: "poster_path")
+        
+    
+        updateContext()
+    }
+    
+    
+    func getFavoriteMovies() -> Array<Movies> {
+        
+        let searchMovie:NSFetchRequest<Movies> = Movies.fetchRequest()
+        let sortedName = NSSortDescriptor(key: "release_date", ascending: true)
+        searchMovie.sortDescriptors = [sortedName]
+        
+        managerOfResults = NSFetchedResultsController(fetchRequest: searchMovie, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        managerOfResults?.delegate = self as? NSFetchedResultsControllerDelegate
+        
+        do {
+            try managerOfResults?.performFetch()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        guard let listMovies = managerOfResults?.fetchedObjects else { return [] }
+        
+        return listMovies
     }
     
     

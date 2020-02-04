@@ -134,15 +134,29 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="of3-qn-9JR">
+                                                        <rect key="frame" x="241" y="20" width="85" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="85" id="4lk-CI-3tA"/>
+                                                            <constraint firstAttribute="height" constant="40" id="VT1-KX-X6k"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Save"/>
+                                                        <connections>
+                                                            <action selector="saveMovieButtonAction:" destination="z2e-Ad-eQA" eventType="touchUpInside" id="kad-DU-oPa"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="of3-qn-9JR" firstAttribute="top" secondItem="ZWa-BP-Kg5" secondAttribute="top" constant="20" symbolic="YES" id="1RD-Gg-J21"/>
                                                     <constraint firstAttribute="trailing" secondItem="5iJ-en-XJn" secondAttribute="trailing" constant="34" id="5a9-Vh-i7X"/>
                                                     <constraint firstAttribute="trailing" secondItem="pDk-zw-z9E" secondAttribute="trailing" constant="34" id="9Kk-xw-ya9"/>
                                                     <constraint firstItem="5iJ-en-XJn" firstAttribute="leading" secondItem="ZWa-BP-Kg5" secondAttribute="leading" constant="34" id="G30-sl-99G"/>
                                                     <constraint firstAttribute="height" constant="398" id="GgX-nh-KXd"/>
                                                     <constraint firstItem="5iJ-en-XJn" firstAttribute="top" secondItem="pDk-zw-z9E" secondAttribute="bottom" constant="33" id="L9A-DM-BYL"/>
                                                     <constraint firstItem="pDk-zw-z9E" firstAttribute="top" secondItem="Oeh-vI-mKo" secondAttribute="bottom" constant="2" id="Spi-au-g9u"/>
+                                                    <constraint firstAttribute="trailing" secondItem="of3-qn-9JR" secondAttribute="trailing" constant="20" symbolic="YES" id="Zl6-N3-Jb3"/>
                                                     <constraint firstItem="gNS-fJ-Ufp" firstAttribute="top" secondItem="ZWa-BP-Kg5" secondAttribute="top" constant="20" id="njo-31-qM1"/>
                                                     <constraint firstAttribute="trailing" secondItem="gNS-fJ-Ufp" secondAttribute="trailing" constant="34" id="pdv-A1-OBS"/>
                                                     <constraint firstItem="pDk-zw-z9E" firstAttribute="leading" secondItem="ZWa-BP-Kg5" secondAttribute="leading" constant="34" id="q4j-1T-AWV"/>
@@ -189,6 +203,7 @@
                         <outlet property="genreMovieLabel" destination="pDk-zw-z9E" id="GwU-Gd-cG3"/>
                         <outlet property="movieImageView" destination="WW0-Zg-bcA" id="hBS-e0-1Jn"/>
                         <outlet property="overviewMovieText" destination="5iJ-en-XJn" id="EJR-ZO-SZD"/>
+                        <outlet property="saveMovieButton" destination="of3-qn-9JR" id="kkT-cs-fXc"/>
                         <outlet property="titleMovieLabel" destination="gNS-fJ-Ufp" id="mrd-x6-TbC"/>
                         <outlet property="yearMovieLabel" destination="Oeh-vI-mKo" id="plP-NS-N8b"/>
                     </connections>

@@ -32,8 +32,15 @@ class MovieGenrePresenter {
             
         }
         
+    }
+    
+    func saveFavoriteMovie() {
         
-        
+        let detailMovie = MovieDetailViewController()
+
+        if let movie = detailMovie.getMovie() {
+            print("filme carregado no presenter: \(movie.title)")
+        }
     }
     
     

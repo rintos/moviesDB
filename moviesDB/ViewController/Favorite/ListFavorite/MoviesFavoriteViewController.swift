@@ -13,21 +13,38 @@ class MoviesFavoriteViewController: UIViewController {
 
     @IBOutlet weak var movieFavoriteTableView: UITableView!
     
+    var favorites: [Movies] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configTableView()
+        configPresenter()
+        print("contagem de favoritos: \(favorites.count)")
+        
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     
-
     func configTableView(){
         
         movieFavoriteTableView.delegate = self
         movieFavoriteTableView.dataSource = self
         movieFavoriteTableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "movieTableViewID")
 
+        movieFavoriteTableView.reloadData()
     }
+    
+    
+    func configPresenter(){
+        let presenter = MoviesFavoritePresenter()
+        presenter.attachView(view: self)
+        presenter.loadFavoriteMovies()
+
+    }
+    
     
     /*
     // MARK: - Navigation

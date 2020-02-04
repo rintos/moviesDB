@@ -11,14 +11,17 @@ import UIKit
 extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        return self.favorites.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieTableViewID", for: indexPath) as! MovieTableViewCell
         
-        cell.movieTitleLabel.text = "teste"
+        let favorite = favorites[indexPath.row]
+        
+        cell.movieTitleLabel.text = favorite.title
         
         return cell
     }

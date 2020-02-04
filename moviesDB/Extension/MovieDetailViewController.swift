@@ -17,12 +17,17 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var yearMovieLabel: UILabel!
     @IBOutlet weak var genreMovieLabel: UILabel!
     @IBOutlet weak var overviewMovieText: UITextView!
+    @IBOutlet weak var saveMovieButton: UIButton!
+    
+    
     
     var movies: MoviesModel!
     var genre_ids: [Int] = []
   //  var genreDict: [String: Any] = [:]
     var totalGenres: [GenreModel] = []
     var nameGenre = ""
+    let favoriteMovies = MoviesFavoriteViewController()
+
 
     var presenter: ListMoviesPresenter!
     let refreshControl: UIRefreshControl = UIRefreshControl()
@@ -45,13 +50,12 @@ class MovieDetailViewController: UIViewController {
     }
     
     func configButtonItem() {
-        let buttonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItem.Style.done, target: self, action: #selector(saveMovie))
+        let buttonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItem.Style.done, target: self, action: #selector(saveMovies))
         navigationItem.rightBarButtonItem = buttonItem
     }
     
-    @objc func saveMovie(){
-        print("Save Movie")
-        MovieDAO.saveMovie(movies)
+    @objc func saveMovies(){
+        configFavoritePresenter()
     }
     
     func configLayout(){
@@ -84,6 +88,25 @@ class MovieDetailViewController: UIViewController {
         presenter.loadMovies()
     }
 
+     func getMovie() -> MoviesModel? {
+        guard let  movie = movies else { return nil}
+        return movie
+    }
+    
+    func configFavoritePresenter() {
+        let presenter = MovieGenrePresenter()
+        presenter.attachView(view: self)
+        presenter.saveFavoriteMovie()
+        
+    }
+    
+    
+    @IBAction func saveMovieButtonAction(_ sender: Any) {
+
+        MovieDAO().saveMovie(movies)
+        
+    }
+    
     /*
     // MARK: - Navigation
 
