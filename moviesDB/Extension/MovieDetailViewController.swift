@@ -70,6 +70,15 @@ class MovieDetailViewController: UIViewController {
         genre_ids = movies.genre_ids
         genreMovieLabel.text =  nameGenre
         
+        print("Caminho completo da imagem:\(imagePath.defaultImageUrl + movies.poster_path)")
+//        let path = imagePath.defaultImageUrl + movies.poster_path
+//
+//        let imageV = UIImageView(frame: CGRect(x: 90, y: 200, width: 200, height: 200))
+//       // imageV.layer.borderWidth = 5
+//        imageV.dowloadFromServer(link: path, contentMode: .scaleAspectFill)
+//        self.view.addSubview(imageV)
+        
+        
     }
     
     func configPresenter(){
@@ -102,11 +111,27 @@ class MovieDetailViewController: UIViewController {
     
     
     @IBAction func saveMovieButtonAction(_ sender: Any) {
+        
+        let imagePath = MovieManagerConstants()
+        let path = imagePath.defaultImageUrl + movies.poster_path
+        let image: UIImage = UIImage()
+        
+        DispatchQueue.main.async {
+            image.dowloadFromServer(link: path)
+            print("Fazendo o download")
+            sleep(5)
+            print("apos 5 segundos")
+            let imageDownloaded = image
+            print("vai executar o DAO")
+            MovieDAO().saveMovie(self.movies, imageDownloaded)
+        }
+        
+        
 
-        MovieDAO().saveMovie(movies)
+        
         
     }
-    
+
     /*
     // MARK: - Navigation
 

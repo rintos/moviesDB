@@ -21,8 +21,8 @@ extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSour
         
         let favorite = favorites[indexPath.row]
         
-        cell.movieTitleLabel.text = favorite.title
-        
+        cell.configCell(favorite)
+            
         return cell
     }
     

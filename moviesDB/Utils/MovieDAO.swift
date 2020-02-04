@@ -20,7 +20,9 @@ class MovieDAO: NSObject {
     
     var managerOfResults:NSFetchedResultsController<Movies>?
     
-     func saveMovie(_ movie: MoviesModel) {
+    func saveMovie(_ movie: MoviesModel, _ image: UIImage) {
+        
+        let images = image
         
         var movieObject:NSManagedObject?
 //        guard let id = UUID(uuidString: tutorialSave.id as! String) else { return }
@@ -46,6 +48,7 @@ class MovieDAO: NSObject {
         movieObject?.setValue(date, forKey: "release_date")
         movieObject?.setValue(posterPath, forKey: "poster_path")
         movieObject?.setValue(idCoredata, forKey: "id")
+        movieObject?.setValue(images, forKey: "image")
         
 //        movieObject?.setValue("234234234", forKey: "id_API")
 //        movieObject?.setValue("title", forKey: "title")

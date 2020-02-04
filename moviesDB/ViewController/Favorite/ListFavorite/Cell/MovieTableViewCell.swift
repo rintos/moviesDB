@@ -25,4 +25,12 @@ class MovieTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configCell(_ movies: Movies) {
+        let image = movies.image as? UIImage
+        print("Imagem do CoreData: \(String(describing: image))")
+        
+        movieImageView.image = image
+        movieTitleLabel.text = movies.title
+    }
+    
 }
