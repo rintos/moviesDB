@@ -19,8 +19,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jet-oT-Dzy">
                         <rect key="frame" x="20" y="20" width="434" height="292"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Yxo-jh-o5G">
-                                <rect key="frame" x="8" y="8.5" width="196" height="275.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yxo-jh-o5G">
+                                <rect key="frame" x="8" y="6" width="196" height="280"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="196" id="UDE-ap-Qr3"/>
                                 </constraints>
@@ -55,13 +55,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="movieImageView" destination="Yxo-jh-o5G" id="Kbu-gX-kpb"/>
+                <outlet property="imageTableViewCell" destination="Yxo-jh-o5G" id="BII-q5-Ehr"/>
                 <outlet property="movieTitleLabel" destination="gNm-YT-JpQ" id="NWi-qa-Fl8"/>
             </connections>
             <point key="canvasLocation" x="217.39130434782609" y="154.01785714285714"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="pencil" catalog="system" width="64" height="56"/>
-    </resources>
 </document>

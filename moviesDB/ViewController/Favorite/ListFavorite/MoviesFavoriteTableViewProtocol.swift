@@ -20,7 +20,7 @@ extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieTableViewID", for: indexPath) as! MovieTableViewCell
         
         let favorite = favorites[indexPath.row]
-        
+
         cell.configCell(favorite)
             
         return cell

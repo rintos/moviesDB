@@ -28,7 +28,7 @@
 		98E0FDBB23E8C89D005C15C2 /* MovieDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0FDBA23E8C89D005C15C2 /* MovieDAO.swift */; };
 		98E0FDBD23E9A8AE005C15C2 /* MoviesFavoriteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0FDBC23E9A8AE005C15C2 /* MoviesFavoriteProtocol.swift */; };
 		98E0FDBF23E9AA0F005C15C2 /* MoviesFavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0FDBE23E9AA0F005C15C2 /* MoviesFavoritePresenter.swift */; };
-		98E0FDC323E9F380005C15C2 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0FDC223E9F380005C15C2 /* UIImage.swift */; };
+		98E0FDC723EA0B06005C15C2 /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0FDC623EA0B06005C15C2 /* ImageController.swift */; };
 		98EBBB6023E0C53D003107E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBBB5F23E0C53D003107E7 /* AppDelegate.swift */; };
 		98EBBB6223E0C53D003107E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBBB6123E0C53D003107E7 /* SceneDelegate.swift */; };
 		98EBBB6423E0C53D003107E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBBB6323E0C53D003107E7 /* ViewController.swift */; };
@@ -92,7 +92,7 @@
 		98E0FDBA23E8C89D005C15C2 /* MovieDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDAO.swift; sourceTree = "<group>"; };
 		98E0FDBC23E9A8AE005C15C2 /* MoviesFavoriteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFavoriteProtocol.swift; sourceTree = "<group>"; };
 		98E0FDBE23E9AA0F005C15C2 /* MoviesFavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFavoritePresenter.swift; sourceTree = "<group>"; };
-		98E0FDC223E9F380005C15C2 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		98E0FDC623EA0B06005C15C2 /* ImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
 		98EBBB5C23E0C53D003107E7 /* moviesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moviesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EBBB5F23E0C53D003107E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98EBBB6123E0C53D003107E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -349,6 +349,7 @@
 				98EBBBA923E1B7A2003107E7 /* MovieManager.swift */,
 				98E0FDB123E8A0FA005C15C2 /* ErrorManager.swift */,
 				98E0FDBA23E8C89D005C15C2 /* MovieDAO.swift */,
+				98E0FDC623EA0B06005C15C2 /* ImageController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -357,7 +358,6 @@
 			isa = PBXGroup;
 			children = (
 				98EBBBAC23E1C6C0003107E7 /* UIViewController.swift */,
-				98E0FDC223E9F380005C15C2 /* UIImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -653,7 +653,6 @@
 				22E367CE23E11B130025C1D5 /* ListMoviesPresenter.swift in Sources */,
 				98EBBBA123E0CEE6003107E7 /* GenreModel.swift in Sources */,
 				98EBBBAF23E1CD6B003107E7 /* MovieDetailViewController.swift in Sources */,
-				98E0FDC323E9F380005C15C2 /* UIImage.swift in Sources */,
 				98EBBB6A23E0C53D003107E7 /* moviesDB.xcdatamodeld in Sources */,
 				98EBBBB923E221A2003107E7 /* MovieDetailProtocol.swift in Sources */,
 				98EBBBB723E2210E003107E7 /* MovieGenrePresenter.swift in Sources */,
@@ -662,6 +661,7 @@
 				22E367C623E115DD0025C1D5 /* MovieCollectionViewCell.swift in Sources */,
 				22E367CC23E118F20025C1D5 /* ListMoviesProtocol.swift in Sources */,
 				98E0FDBD23E9A8AE005C15C2 /* MoviesFavoriteProtocol.swift in Sources */,
+				98E0FDC723EA0B06005C15C2 /* ImageController.swift in Sources */,
 				98EBBBA523E0D9E2003107E7 /* ListMoviesNetwork.swift in Sources */,
 				98E0FDB223E8A0FA005C15C2 /* ErrorManager.swift in Sources */,
 				98EBBBA723E0DFF6003107E7 /* MovieHeader.swift in Sources */,

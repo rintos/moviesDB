@@ -114,21 +114,8 @@ class MovieDetailViewController: UIViewController {
         
         let imagePath = MovieManagerConstants()
         let path = imagePath.defaultImageUrl + movies.poster_path
-        let image: UIImage = UIImage()
-        
-        DispatchQueue.main.async {
-            image.dowloadFromServer(link: path)
-            print("Fazendo o download")
-            sleep(5)
-            print("apos 5 segundos")
-            let imageDownloaded = image
-            print("vai executar o DAO")
-            MovieDAO().saveMovie(self.movies, imageDownloaded)
-        }
-        
-        
 
-        
+        MovieDAO().saveMovie(self.movies)
         
     }
 

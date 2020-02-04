@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var imageTableViewCell: UIImageView!
     
 
     override func awakeFromNib() {
@@ -26,10 +27,12 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     func configCell(_ movies: Movies) {
-        let image = movies.image as? UIImage
-        print("Imagem do CoreData: \(String(describing: image))")
+        let imagePath = MovieManagerConstants()
+        let posterPath = movies.poster_path ?? ""
+        var pathImage = URL(string: imagePath.defaultImageUrl + posterPath)
         
-        movieImageView.image = image
+        imageView?.sd_setImage(with: pathImage, completed: .none)
+
         movieTitleLabel.text = movies.title
     }
     
