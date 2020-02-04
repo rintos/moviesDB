@@ -1,19 +1,24 @@
 //
-//  HomeViewController.swift
+//  MainTabBarController.swift
 //  moviesDB
 //
-//  Created by Victor Soares de Almeida on 28/01/20.
+//  Created by Victor Almeida on 29/01/20.
 //  Copyright © 2020 Victor Soares de Almeida. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configTabBar()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func configTabBar(){
+        self.selectedIndex = 0
     }
     
 

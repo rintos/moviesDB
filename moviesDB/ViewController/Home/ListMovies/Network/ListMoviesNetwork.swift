@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import Alamofire
+
+typealias allGenres = [String: GenreModel]
+
+var pg = MovieManagerConstants()
+public var paginas = pg.pages
 
 class ListMoviesNetwork: NetworkManager {
+    
     static func lastMoviesRoute(headers: NetworkManager.Headers, completionHandler: @escaping (NSError?, [MoviesModel]) -> Void ) {
-        let url = "https://api.themoviedb.org/3/movie/popular?api_key=4b299949fc90bb34aebaf5ba4dc28389&language=en-US&page=1"
+        let url = "https://api.themoviedb.org/3/movie/popular?api_key=4b299949fc90bb34aebaf5ba4dc28389&language=en-US&page=\(paginas)"
         
         requestJson(method: .get, url: url, parameters: nil, header: headers) { (response) in
             
@@ -24,13 +31,16 @@ class ListMoviesNetwork: NetworkManager {
                 
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                 
-                if let jsonResult = jsonResult as? [JSONDict] {
+                if let jsonResult = jsonResult as? JSONDict {
                     var itensArray: [MoviesModel] = []
                     
-                    for item in jsonResult {
-                        let movie = MoviesModelFields(jsonDict: item)
-                        itensArray.append(movie)
-                        
+                    if let json = jsonResult["results"] as? [JSONDict] {
+                        for item in json {
+                            let movie = MoviesModelFields(jsonDict: item)
+                            itensArray.append(movie)
+                            
+                                               
+                            }
                     }
                     
                     completionHandler(nil, itensArray)

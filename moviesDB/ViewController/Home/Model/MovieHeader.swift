@@ -25,6 +25,13 @@ struct MovieHeaderField: MovieHeader {
         total_pages = jsonDict["total_pages"] as? Int ?? 0
     }
     
+    
+    init() {
+        page = 1
+        total_results = 10000
+        total_pages = 500
+    }
+    
 }
 
 
