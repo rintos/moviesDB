@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
-extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSource {
+extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+//        self.listFavorites = MovieDAO().getFavoriteMovies()
+//        return self.listFavorites.count
         return self.favorites.count
     }
     
@@ -19,6 +21,8 @@ extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieTableViewID", for: indexPath) as! MovieTableViewCell
         
+//        let favorited = MovieDAO().getFavoriteMovies()
+//        let fav = favorited[indexPath.row]
         let favorite = favorites[indexPath.row]
 
         cell.configCell(favorite)
@@ -31,4 +35,29 @@ extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let movies = MovieDAO().getFavoriteMovies()
+            let movieSelected = movies[indexPath.row]
+            MovieDAO().deleteMovie(movie: movieSelected)
+            MovieDAO().updateContext()
+            movieFavoriteTableView.reloadData()
+
+        }
+        
+    }
+        
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            guard let indexpath = indexPath else {return}
+            movieFavoriteTableView.deleteRows(at: [indexpath], with: .fade)
+            break
+        default:
+            movieFavoriteTableView.reloadData()
+        }
+    }
+    
+    
 }
+

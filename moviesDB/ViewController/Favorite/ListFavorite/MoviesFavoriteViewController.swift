@@ -7,25 +7,31 @@
 //
 
 import UIKit
-import CoreData
 
 class MoviesFavoriteViewController: UIViewController {
 
     @IBOutlet weak var movieFavoriteTableView: UITableView!
     
     var favorites: [Movies] = []
+    var listFavorites: [Movies] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configTableView()
-        configPresenter()
+    //    configPresenter()
         print("contagem de favoritos: \(favorites.count)")
+        
+//        MovieDAO().setupMovies()
+        movieFavoriteTableView.reloadData()
+        configPresenter()
         
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
+        print("contagem quantidade de Favoritos: \(favorites.count)")
+        configPresenter()
+        movieFavoriteTableView.reloadData()
     }
     
     func configTableView(){
@@ -45,6 +51,26 @@ class MoviesFavoriteViewController: UIViewController {
 
     }
     
+    func presenterLoad(){
+        let presenter = MoviesFavoritePresenter()
+        presenter.attachView(view: self)
+        presenter.loadMovies()
+    }
+            
+//        func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//            switch type {
+//            case .delete:
+//                guard let indexpath = indexPath else { return }
+//                movieFavoriteTableView.deleteRows(at: [indexpath], with: .fade)
+//                break
+//            default:
+//                movieFavoriteTableView.reloadData()
+//                configPresenter()
+//            }
+//        }
+        
+    }
+    
     
     /*
     // MARK: - Navigation
@@ -56,4 +82,4 @@ class MoviesFavoriteViewController: UIViewController {
     }
     */
 
-}
+

@@ -79,15 +79,38 @@ class MovieDAO: NSObject {
     }
     
     
+    func setupMovies(){
+        
+        let searchMovie:NSFetchRequest<Movies> = Movies.fetchRequest()
+        let sortedName = NSSortDescriptor(key: "release_date", ascending: true)
+        searchMovie.sortDescriptors = [sortedName]
+        
+        managerOfResults = NSFetchedResultsController(fetchRequest: searchMovie, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        managerOfResults?.delegate = self as? NSFetchedResultsControllerDelegate
+        
+        do {
+            try managerOfResults?.performFetch()
+        } catch {
+            print(error.localizedDescription)
+        }
+                
+    }
+    
+    
     func updateContext() {
         do {
             try context.save()
-            print("salvo com sucesso")
         } catch  {
             print(error.localizedDescription)
             print("erro ao salvar")
         }
     }
     
+    
+    func deleteMovie(movie: Movies) {
+        context.delete(movie)
+        updateContext()
+    }
     
 }

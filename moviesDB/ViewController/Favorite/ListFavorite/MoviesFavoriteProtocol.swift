@@ -10,15 +10,17 @@ import UIKit
 
 protocol MovieFavoriteView {
     func loadFavorite()
+    func loadMovies()
 }
 
 extension MoviesFavoriteViewController: MovieFavoriteView {
         
     func loadFavorite () {
-        let movie = MovieDAO().getFavoriteMovies()
-         for item in movie {
-            favorites.append(item)
-         }
+        favorites = MovieDAO().getFavoriteMovies()
+        movieFavoriteTableView.reloadData()
+    }
+    
+    func loadMovies() {
         movieFavoriteTableView.reloadData()
     }
     

@@ -49,12 +49,22 @@
                                             <constraint firstAttribute="trailing" secondItem="v2n-hh-exM" secondAttribute="trailing" constant="10" id="yWN-ja-0Dr"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPY-9C-Oa6">
+                                        <rect key="frame" x="120" y="230" width="30" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="WY8-ik-Lr7"/>
+                                            <constraint firstAttribute="width" constant="30" id="Wmw-Z1-iPZ"/>
+                                        </constraints>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rPY-9C-Oa6" secondAttribute="trailing" constant="20" symbolic="YES" id="3qi-qx-95d"/>
                                     <constraint firstAttribute="trailing" secondItem="Afr-li-7fz" secondAttribute="trailing" constant="10" id="E0n-rJ-Q4X"/>
                                     <constraint firstItem="Afr-li-7fz" firstAttribute="top" secondItem="N14-J9-i1p" secondAttribute="top" constant="1" id="O4z-8s-kAQ"/>
                                     <constraint firstItem="Afr-li-7fz" firstAttribute="leading" secondItem="N14-J9-i1p" secondAttribute="leading" constant="10" id="bUA-DD-tFU"/>
+                                    <constraint firstAttribute="bottom" secondItem="rPY-9C-Oa6" secondAttribute="bottom" constant="20" symbolic="YES" id="hM0-Ba-C0T"/>
                                     <constraint firstItem="MQ2-kc-mdn" firstAttribute="leading" secondItem="N14-J9-i1p" secondAttribute="leading" constant="20" symbolic="YES" id="nUL-Cg-NQQ"/>
                                     <constraint firstItem="MQ2-kc-mdn" firstAttribute="top" secondItem="Afr-li-7fz" secondAttribute="bottom" constant="8" id="sJ7-7x-6Kd"/>
                                     <constraint firstAttribute="trailing" secondItem="MQ2-kc-mdn" secondAttribute="trailing" constant="20" symbolic="YES" id="wJg-IV-8FO"/>

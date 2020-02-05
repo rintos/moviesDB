@@ -55,7 +55,7 @@ class MovieDetailViewController: UIViewController {
     }
     
     @objc func saveMovies(){
-        configFavoritePresenter()
+        MovieDAO().saveMovie(self.movies)
     }
     
     func configLayout(){
@@ -70,7 +70,7 @@ class MovieDetailViewController: UIViewController {
         genre_ids = movies.genre_ids
         genreMovieLabel.text =  nameGenre
         
-        print("Caminho completo da imagem:\(imagePath.defaultImageUrl + movies.poster_path)")
+        //print("Caminho completo da imagem:\(imagePath.defaultImageUrl + movies.poster_path)")
 //        let path = imagePath.defaultImageUrl + movies.poster_path
 //
 //        let imageV = UIImageView(frame: CGRect(x: 90, y: 200, width: 200, height: 200))
@@ -111,12 +111,7 @@ class MovieDetailViewController: UIViewController {
     
     
     @IBAction func saveMovieButtonAction(_ sender: Any) {
-        
-        let imagePath = MovieManagerConstants()
-        let path = imagePath.defaultImageUrl + movies.poster_path
-
-        MovieDAO().saveMovie(self.movies)
-        
+    
     }
 
     /*

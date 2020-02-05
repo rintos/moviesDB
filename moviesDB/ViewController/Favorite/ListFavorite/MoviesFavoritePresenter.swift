@@ -20,4 +20,8 @@ class MoviesFavoritePresenter: NSObject {
         self.view.loadFavorite()
     }
     
+    func loadMovies() {
+        self.view.loadMovies()
+    }
+    
 }
