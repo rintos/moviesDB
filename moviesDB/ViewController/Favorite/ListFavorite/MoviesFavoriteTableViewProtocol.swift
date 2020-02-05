@@ -12,20 +12,19 @@ import CoreData
 extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        self.listFavorites = MovieDAO().getFavoriteMovies()
-//        return self.listFavorites.count
-        return self.favorites.count
+        self.listFavorites = MovieDAO().getFavoriteMovies()
+        return self.listFavorites.count
+       // return self.favorites.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieTableViewID", for: indexPath) as! MovieTableViewCell
         
-//        let favorited = MovieDAO().getFavoriteMovies()
-//        let fav = favorited[indexPath.row]
-        let favorite = favorites[indexPath.row]
+        let favorited = MovieDAO().getFavoriteMovies()
+        let fav = favorited[indexPath.row]
 
-        cell.configCell(favorite)
+        cell.configCell(fav)
             
         return cell
     }
