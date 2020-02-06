@@ -13,6 +13,7 @@ class MoviesFavoriteViewController: UIViewController {
     @IBOutlet weak var movieFavoriteTableView: UITableView!
     
     
+    let constants = MovieManagerConstants.self
     
     var listFavorites: [Movies] = []
     
@@ -21,13 +22,18 @@ class MoviesFavoriteViewController: UIViewController {
 
         configTableView()
         
-        MovieDAO().setupMovies()
+      //  MovieDAO().setupMovies()
         movieFavoriteTableView.reloadData()
         
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
         movieFavoriteTableView.reloadData()
+    }
+    
+    func setupCoreData() {
+        self.listFavorites = MovieDAO().getFavoriteMovies()
     }
     
     func configTableView(){

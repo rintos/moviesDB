@@ -1,5 +1,5 @@
 //
-//  FilterMoviesViewController.swift
+//  ListFilterViewController.swift
 //  moviesDB
 //
 //  Created by Victor Soares de Almeida on 06/02/20.
@@ -8,27 +8,27 @@
 
 import UIKit
 
-class FilterMoviesViewController: UIViewController {
-    
-    @IBOutlet weak var filterTypeTableView: UITableView!
-    
+class ListFilterViewController: UIViewController {
 
+    
+    @IBOutlet weak var listFilterTableView: UITableView!
+    
+    var listGenres: MovieManagerConstants!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
         configTableView()
-        
     }
     
     
-    
-    func configTableView(){
-
-        filterTypeTableView.delegate = self
-        filterTypeTableView.dataSource = self
-        filterTypeTableView.register(UINib(nibName: "FilterMovieTypeTableViewCell", bundle: nil), forCellReuseIdentifier: "cellFeatureType")
-            
-        filterTypeTableView.reloadData()
+    func configTableView () {
+        listFilterTableView.delegate = self
+        listFilterTableView.dataSource = self
+        
+        listFilterTableView.register(UINib(nibName: "ListFilterTableViewCell", bundle: nil), forCellReuseIdentifier: "listFilterID")
+        
     }
 
     /*

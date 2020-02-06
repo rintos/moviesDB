@@ -31,6 +31,10 @@
 		98E0FDCC23EC86AE005C15C2 /* FilterMoviesTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0FDCB23EC86AE005C15C2 /* FilterMoviesTableViewProtocol.swift */; };
 		98E0FDD123EC8B04005C15C2 /* FilterMovieTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0FDCF23EC8B04005C15C2 /* FilterMovieTypeTableViewCell.swift */; };
 		98E0FDD223EC8B04005C15C2 /* FilterMovieTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98E0FDD023EC8B04005C15C2 /* FilterMovieTypeTableViewCell.xib */; };
+		98E0FDD523ECBE97005C15C2 /* ListFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0FDD423ECBE97005C15C2 /* ListFilterViewController.swift */; };
+		98E0FDD723ECBED0005C15C2 /* ListFilterTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0FDD623ECBED0005C15C2 /* ListFilterTableViewProtocol.swift */; };
+		98E0FDDB23ECBF33005C15C2 /* ListFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0FDD923ECBF33005C15C2 /* ListFilterTableViewCell.swift */; };
+		98E0FDDC23ECBF33005C15C2 /* ListFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98E0FDDA23ECBF33005C15C2 /* ListFilterTableViewCell.xib */; };
 		98EBBB6023E0C53D003107E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBBB5F23E0C53D003107E7 /* AppDelegate.swift */; };
 		98EBBB6223E0C53D003107E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBBB6123E0C53D003107E7 /* SceneDelegate.swift */; };
 		98EBBB6423E0C53D003107E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EBBB6323E0C53D003107E7 /* ViewController.swift */; };
@@ -97,6 +101,10 @@
 		98E0FDCB23EC86AE005C15C2 /* FilterMoviesTableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMoviesTableViewProtocol.swift; sourceTree = "<group>"; };
 		98E0FDCF23EC8B04005C15C2 /* FilterMovieTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMovieTypeTableViewCell.swift; sourceTree = "<group>"; };
 		98E0FDD023EC8B04005C15C2 /* FilterMovieTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterMovieTypeTableViewCell.xib; sourceTree = "<group>"; };
+		98E0FDD423ECBE97005C15C2 /* ListFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilterViewController.swift; sourceTree = "<group>"; };
+		98E0FDD623ECBED0005C15C2 /* ListFilterTableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilterTableViewProtocol.swift; sourceTree = "<group>"; };
+		98E0FDD923ECBF33005C15C2 /* ListFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilterTableViewCell.swift; sourceTree = "<group>"; };
+		98E0FDDA23ECBF33005C15C2 /* ListFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListFilterTableViewCell.xib; sourceTree = "<group>"; };
 		98EBBB5C23E0C53D003107E7 /* moviesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moviesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EBBB5F23E0C53D003107E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98EBBB6123E0C53D003107E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +241,7 @@
 		98E0FDC823EC8434005C15C2 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				98E0FDD323ECBE67005C15C2 /* ListFilter */,
 				98E0FDCD23EC8AAC005C15C2 /* Cell */,
 				98E0FDC923EC8484005C15C2 /* FilterMoviesViewController.swift */,
 				98E0FDCB23EC86AE005C15C2 /* FilterMoviesTableViewProtocol.swift */,
@@ -245,6 +254,25 @@
 			children = (
 				98E0FDCF23EC8B04005C15C2 /* FilterMovieTypeTableViewCell.swift */,
 				98E0FDD023EC8B04005C15C2 /* FilterMovieTypeTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		98E0FDD323ECBE67005C15C2 /* ListFilter */ = {
+			isa = PBXGroup;
+			children = (
+				98E0FDD823ECBEF1005C15C2 /* Cell */,
+				98E0FDD423ECBE97005C15C2 /* ListFilterViewController.swift */,
+				98E0FDD623ECBED0005C15C2 /* ListFilterTableViewProtocol.swift */,
+			);
+			path = ListFilter;
+			sourceTree = "<group>";
+		};
+		98E0FDD823ECBEF1005C15C2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				98E0FDD923ECBF33005C15C2 /* ListFilterTableViewCell.swift */,
+				98E0FDDA23ECBF33005C15C2 /* ListFilterTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -531,6 +559,7 @@
 				98E0FDD223EC8B04005C15C2 /* FilterMovieTypeTableViewCell.xib in Resources */,
 				98EBBB6F23E0C544003107E7 /* LaunchScreen.storyboard in Resources */,
 				98E0FDB723E8C1F0005C15C2 /* MovieTableViewCell.xib in Resources */,
+				98E0FDDC23ECBF33005C15C2 /* ListFilterTableViewCell.xib in Resources */,
 				98EBBB6C23E0C544003107E7 /* Assets.xcassets in Resources */,
 				98EBBB6723E0C53D003107E7 /* Main.storyboard in Resources */,
 				221AD47423E25AB900BD78D0 /* Favorite.storyboard in Resources */,
@@ -668,7 +697,9 @@
 				98EBBBB523E21D9E003107E7 /* GenreMovieNetwork.swift in Sources */,
 				221AD47723E25C0300BD78D0 /* MainTabBarController.swift in Sources */,
 				98E0FDAF23E86679005C15C2 /* LoadingCollectionReusableView.swift in Sources */,
+				98E0FDDB23ECBF33005C15C2 /* ListFilterTableViewCell.swift in Sources */,
 				98E0FDBB23E8C89D005C15C2 /* MovieDAO.swift in Sources */,
+				98E0FDD723ECBED0005C15C2 /* ListFilterTableViewProtocol.swift in Sources */,
 				98E0FDCC23EC86AE005C15C2 /* FilterMoviesTableViewProtocol.swift in Sources */,
 				98EBBB6423E0C53D003107E7 /* ViewController.swift in Sources */,
 				98E0FDB623E8C1F0005C15C2 /* MovieTableViewCell.swift in Sources */,
@@ -689,6 +720,7 @@
 				98E0FDC723EA0B06005C15C2 /* ImageController.swift in Sources */,
 				98EBBBA523E0D9E2003107E7 /* ListMoviesNetwork.swift in Sources */,
 				98E0FDB223E8A0FA005C15C2 /* ErrorManager.swift in Sources */,
+				98E0FDD523ECBE97005C15C2 /* ListFilterViewController.swift in Sources */,
 				98EBBBA723E0DFF6003107E7 /* MovieHeader.swift in Sources */,
 				22E367CA23E1189E0025C1D5 /* ListMoviesViewController.swift in Sources */,
 				98EBBBAD23E1C6C0003107E7 /* UIViewController.swift in Sources */,

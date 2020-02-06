@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="1057.9710144927537" y="987.72321428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--List Filter View Controller-->
         <scene sceneID="RYJ-U0-gxU">
             <objects>
-                <viewController id="KVd-lw-8sV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListFilterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KVd-lw-8sV" customClass="ListFilterViewController" customModule="moviesDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2mm-dm-Qx0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,6 +101,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ppy-A4-sLv"/>
                     </view>
+                    <connections>
+                        <outlet property="listFilterTableView" destination="VXr-WZ-qG9" id="doC-Ix-DDq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAA-cB-adm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -1,5 +1,5 @@
 //
-//  FilterMovieTypeTableViewCell.swift
+//  ListFilterTableViewCell.swift
 //  moviesDB
 //
 //  Created by Victor Soares de Almeida on 06/02/20.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class FilterMovieTypeTableViewCell: UITableViewCell {
+class ListFilterTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var movieFeatureTypeLabel: UILabel!
+    @IBOutlet weak var genresLabel: UILabel!
     
     
     
@@ -23,20 +23,6 @@ class FilterMovieTypeTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    
-    func confiCell(_ type: String){
-        
-        if type == "0" {
-           movieFeatureTypeLabel.text = "Ano de Lançamento"
-        }
-        
-        if type == "1" {
-            movieFeatureTypeLabel.text = "Genero"
-        }
-        
-        
     }
     
 }
