@@ -23,6 +23,11 @@ extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSour
         
         let favorited = MovieDAO().getFavoriteMovies()
         let fav = favorited[indexPath.row]
+        print("filme: \(fav.title)")
+        guard let genres = fav.genres as? [String] else { return cell}
+        for genre in genres {
+            print("com generos: \(genre)")
+        }
 
         cell.configCell(fav)
             

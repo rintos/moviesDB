@@ -27,11 +27,10 @@ class MovieDetailViewController: UIViewController {
     var totalGenres: [GenreModel] = []
     var nameGenre = ""
     let favoriteMovies = MoviesFavoriteViewController()
+    var listGenres: [String] = []
 
 
-    var presenter: ListMoviesPresenter!
-    let refreshControl: UIRefreshControl = UIRefreshControl()
-        
+    var presenter:MovieGenrePresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +41,11 @@ class MovieDetailViewController: UIViewController {
         configLayout()
         configButtonItem()
         
+      
+        
     }
         
     override func viewDidAppear(_ animated: Bool) {
-        configPresenter()
         configLayout()
     }
     
@@ -55,7 +55,7 @@ class MovieDetailViewController: UIViewController {
     }
     
     @objc func saveMovies(){
-        MovieDAO().saveMovie(self.movies)
+        MovieDAO().saveMovie(self.movies, self.listGenres)
     }
     
     func configLayout(){
@@ -68,16 +68,11 @@ class MovieDetailViewController: UIViewController {
         yearMovieLabel.text = movies.release_date
         overviewMovieText.text = movies.overview
         genre_ids = movies.genre_ids
+        for item in self.listGenres {
+            nameGenre += " \(item) "
+        }
         genreMovieLabel.text =  nameGenre
-        
-        //print("Caminho completo da imagem:\(imagePath.defaultImageUrl + movies.poster_path)")
-//        let path = imagePath.defaultImageUrl + movies.poster_path
-//
-//        let imageV = UIImageView(frame: CGRect(x: 90, y: 200, width: 200, height: 200))
-//       // imageV.layer.borderWidth = 5
-//        imageV.dowloadFromServer(link: path, contentMode: .scaleAspectFill)
-//        self.view.addSubview(imageV)
-        
+
         
     }
     
@@ -88,25 +83,9 @@ class MovieDetailViewController: UIViewController {
         
     }
     
-    func configRefreshControll() {
-        refreshControl.addTarget(self, action: #selector(loadMovies), for: UIControl.Event.valueChanged)
-
-    }
-    
-    @objc func loadMovies(){
-        presenter.loadMovies()
-    }
-
      func getMovie() -> MoviesModel? {
         guard let  movie = movies else { return nil}
         return movie
-    }
-    
-    func configFavoritePresenter() {
-        let presenter = MovieGenrePresenter()
-        presenter.attachView(view: self)
-        presenter.saveFavoriteMovie()
-        
     }
     
     

@@ -12,6 +12,8 @@ class MoviesFavoriteViewController: UIViewController {
 
     @IBOutlet weak var movieFavoriteTableView: UITableView!
     
+    
+    
     var listFavorites: [Movies] = []
     
     override func viewDidLoad() {
@@ -36,7 +38,17 @@ class MoviesFavoriteViewController: UIViewController {
 
         movieFavoriteTableView.reloadData()
     }
-            
+
+
+    @IBAction func filterButton(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Favorite", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "FilterMoviesViewController") as! FilterMoviesViewController
+        
+        navigationController?.pushViewController(viewController, animated: true)
         
     }
+    
+    
+}
 

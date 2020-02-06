@@ -28,7 +28,8 @@ extension MovieDetailViewController: MovieDetailView {
                
                for genre in genre_ids {
                    if genre == genreId {
-                       self.nameGenre += " \(genreItem.name) "
+                   //    self.nameGenre += " \(genreItem.name) "
+                       self.listGenres.append(genreItem.name)
                    }
                }
            }

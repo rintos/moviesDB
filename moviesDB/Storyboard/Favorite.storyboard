@@ -34,7 +34,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hDU-G5-mqF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Frd-6L-OZu"/>
+                    <navigationItem key="navigationItem" id="Frd-6L-OZu">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="pencil.and.ellipsis.rectangle" catalog="system" id="84r-zm-1lh">
+                            <connections>
+                                <action selector="filterButton:" destination="Z9y-Gm-53G" id="I2w-eO-B1p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="movieFavoriteTableView" destination="zzH-i2-doI" id="puo-dm-zNK"/>
                     </connections>
@@ -42,6 +48,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OyL-ZI-Vqs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73.913043478260875" y="987.72321428571422"/>
+        </scene>
+        <!--Filter Movies View Controller-->
+        <scene sceneID="BUe-s0-sso">
+            <objects>
+                <viewController storyboardIdentifier="FilterMoviesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B6D-r6-CIx" customClass="FilterMoviesViewController" customModule="moviesDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Htm-ud-IUl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q9e-GP-TTd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Q9e-GP-TTd" firstAttribute="leading" secondItem="h9u-GE-uzV" secondAttribute="leading" id="HAU-kv-EEi"/>
+                            <constraint firstItem="Q9e-GP-TTd" firstAttribute="bottom" secondItem="h9u-GE-uzV" secondAttribute="bottom" id="O5s-yU-XDl"/>
+                            <constraint firstItem="Q9e-GP-TTd" firstAttribute="trailing" secondItem="h9u-GE-uzV" secondAttribute="trailing" id="Wlr-SO-TQq"/>
+                            <constraint firstItem="Q9e-GP-TTd" firstAttribute="top" secondItem="h9u-GE-uzV" secondAttribute="top" id="XLk-lE-6Da"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h9u-GE-uzV"/>
+                    </view>
+                    <connections>
+                        <outlet property="filterTypeTableView" destination="Q9e-GP-TTd" id="PSi-aP-qER"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3v-gn-Oka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057.9710144927537" y="987.72321428571422"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="RYJ-U0-gxU">
+            <objects>
+                <viewController id="KVd-lw-8sV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2mm-dm-Qx0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VXr-WZ-qG9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VXr-WZ-qG9" firstAttribute="trailing" secondItem="Ppy-A4-sLv" secondAttribute="trailing" id="7ta-hc-3rI"/>
+                            <constraint firstItem="VXr-WZ-qG9" firstAttribute="top" secondItem="Ppy-A4-sLv" secondAttribute="top" id="Ik5-FP-X73"/>
+                            <constraint firstItem="VXr-WZ-qG9" firstAttribute="bottom" secondItem="Ppy-A4-sLv" secondAttribute="bottom" id="TaK-7Q-L8m"/>
+                            <constraint firstItem="VXr-WZ-qG9" firstAttribute="leading" secondItem="Ppy-A4-sLv" secondAttribute="leading" id="vWh-q6-fT1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ppy-A4-sLv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UAA-cB-adm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2047.826086956522" y="987.72321428571422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mXy-Ti-Fgk">
@@ -67,4 +130,7 @@
             <point key="canvasLocation" x="75.362318840579718" y="-38.169642857142854"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
+    </resources>
 </document>
