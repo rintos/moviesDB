@@ -25,6 +25,7 @@ protocol MoviesModel {
     var adult: Bool { get }
     var overview: String  { get }
     var release_date: String { get }
+    var favoriteHidden: Bool { get set }
 }
 
 struct MoviesModelFields: MoviesModel {
@@ -42,6 +43,7 @@ struct MoviesModelFields: MoviesModel {
     let adult: Bool
     let overview: String
     let release_date: String
+    var favoriteHidden: Bool
     
     init(jsonDict: JSONDict) {
         vote_count = jsonDict["vote_count"] as? Int ?? 0
@@ -58,6 +60,7 @@ struct MoviesModelFields: MoviesModel {
         adult = jsonDict["adult"] as? Bool ?? false
         overview = jsonDict["overview"] as? String ?? ""
         release_date = jsonDict["release_date"] as? String ?? ""
+        favoriteHidden = true
         
     }
     
@@ -76,6 +79,7 @@ struct MoviesModelFields: MoviesModel {
         adult = false
         overview = ""
         release_date = ""
+        favoriteHidden = false
     }
     
 }

@@ -19,22 +19,29 @@ class ListMoviesViewController: UIViewController, UISearchBarDelegate {
     var listMovies: [MoviesModel] = []
     var defaultMovies: [MoviesModel] = []
     var contentMovies: [MoviesModel] = []
+    var totalMovies: [MoviesModel] = []
 
     let refreshControl: UIRefreshControl = UIRefreshControl()
 
     var searchActiveStatus = false
     var isLoading = false
     var loadingView: LoadingCollectionReusableView?
+    var imageStatus: Bool = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configPresenter()
         configCollectionView()
         configRefreshControll()
         setupSearch()
+
+       
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
     }
     
     func configPresenter(){
@@ -99,19 +106,19 @@ class ListMoviesViewController: UIViewController, UISearchBarDelegate {
         }
         
         guard !searchText.isEmpty else {
-            listMovies = contentMovies
+            totalMovies = contentMovies
             moviesCollection.reloadData()
             return
         }
         
-        listMovies = contentMovies.filter({ (content) -> Bool in
+        totalMovies = contentMovies.filter({ (content) -> Bool in
             (content.title.lowercased().contains(searchText.lowercased()))
         })
         
-        let resultStatusLabel = String(listMovies.count)
-        if listMovies.count == 1 {
+        let resultStatusLabel = String(totalMovies.count)
+        if totalMovies.count == 1 {
             statusSerachLabel.text = "\(resultStatusLabel) filme encontrado."
-        } else if listMovies.count > 1 {
+        } else if totalMovies.count > 1 {
             statusSerachLabel.text = "\(resultStatusLabel) filmes encontrados."
         } else {
             statusSerachLabel.text = "Não foi encontrado filme com esse nome"
@@ -135,5 +142,7 @@ class ListMoviesViewController: UIViewController, UISearchBarDelegate {
 
     }
     
+ 
+
 
 }

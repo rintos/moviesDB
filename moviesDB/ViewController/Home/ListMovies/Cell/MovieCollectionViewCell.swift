@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import CoreData
 
 class MovieCollectionViewCell: UICollectionViewCell {
     
@@ -15,10 +16,42 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var movieImageView: UIImageView!
     
+    @IBOutlet weak var favoriteStatus: UIImageView!
+    
+    var statusImage: Bool = true
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+   //     favoriteStatus.isHidden = statusImage
+        
+    }
+
+    
+    func verifyFavorited(_ movie: MoviesModel) -> Bool {
+
+
+        let favorited = MovieDAO().getFavoriteMovies()
+        let id = String(movie.id)
+
+      //  print("ID da API: \(id)")
+
+        for item in favorited {
+            if let idMovie = item.id_API {
+                if id  == idMovie {
+                    print("id API REST: \(id)")
+                    print("id CoreData: \(idMovie)")
+                    statusImage = false
+                    print("FOTO DESABILITADA: \(statusImage)")
+
+                } else {
+                    statusImage = true
+                    print("foto desabilitada: \(statusImage)")
+                }
+            }
+        }
+        
+        return statusImage
     }
     
     
@@ -30,10 +63,22 @@ class MovieCollectionViewCell: UICollectionViewCell {
         movieName.text = movies.title
         movieImageView.sd_setImage(with: movieUrl, completed: .none)
         
+//        let favorited = MovieDAO().getFavoriteMovies()
+//        let id = String(movies.id)
+//
+//        for item in favorited {
+//            if let idMovie = item.id_API {
+//                if id  == idMovie {
+//                    status = false
+//                    favoriteStatus.isHidden = false
+//                } else {
+//                    status = true
+//                    favoriteStatus.isHidden = true
+//                }
+//            }
+//        }
+        
+        
     }
-    
-    
-    
-    
 
 }

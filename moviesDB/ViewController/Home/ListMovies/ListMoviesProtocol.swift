@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol ListMoviesView {
     func onError()
@@ -24,24 +25,35 @@ extension ListMoviesViewController: ListMoviesView {
     
     func onSucess(movies: [MoviesModel]) {
         
-        DispatchQueue.global().async {
-            sleep(2)
+        let savedMovies = MovieDAO().getFavoriteMovies()
+        
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
                 self.listMovies = movies
                 self.contentMovies = movies
                 self.defaultMovies = movies
+                self.totalMovies = movies
                 
+                for saved in savedMovies {
+                    guard let idSaved = saved.id_API else { return }
+                    if let idFavorite = Int(idSaved) {
+                        self.totalMovies = self.totalMovies.map{
+                            var mutableMovies = $0
+                            if $0.id == idFavorite {
+                                mutableMovies.favoriteHidden = false
+                            }
+                            return mutableMovies
+                        }
+                    }
+                }
                 self.moviesCollection.reloadData()
             }
-        }
-        
-
     }
     
+    //Adiciona mais  filmes no array ao finalzar scroll da tela
     func listRefreshMovies(movies: [MoviesModel]){
         for item in movies {
-            self.listMovies.append(item)
+            self.totalMovies.append(item)
             self.contentMovies.append(item)
         }
         moviesCollection.reloadData()

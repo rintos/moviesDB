@@ -7,23 +7,23 @@
 //
 
 import UIKit
+import CoreData
 
 extension ListMoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
   //      print(listMovies.count)
                 
-        return listMovies.count
+        return totalMovies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! MovieCollectionViewCell
         
-        cell.configLayout(movies: listMovies[indexPath.row])
-//        print("filme numero: \(indexPath.row)")
-//        print("nome: \(listMovies[indexPath.row].title)")
-       // cell.movieName.text = listMovies[indexPath.row].title
-        
+        let movie = totalMovies[indexPath.row]
+        cell.configLayout(movies: movie)
+        cell.favoriteStatus.isHidden = movie.favoriteHidden
+
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         
@@ -36,7 +36,7 @@ extension ListMoviesViewController: UICollectionViewDataSource, UICollectionView
         //print("agora vai -------->\(listMovies[indexPath.item].title)")
         
         let detailViewController = goToViewWithPushNavController(storyboard: "Main", identifier: "MovieDetailViewController") as? MovieDetailViewController
-        detailViewController?.movies = listMovies[indexPath.row]
+        detailViewController?.movies = totalMovies[indexPath.row]
         
     }
         
@@ -48,10 +48,11 @@ extension ListMoviesViewController: UICollectionViewDataSource, UICollectionView
     
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == self.listMovies.count - 10 && !self.isLoading {
+        if indexPath.row == self.totalMovies.count - 10 && !self.isLoading {
             loadMoreData()
         }
     }
+
     
     func loadMoreData() {
       //  var moreMovies: MoviesModel = []

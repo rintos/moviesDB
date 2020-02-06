@@ -29,7 +29,7 @@ class ListMoviesPresenter {
                 self.view.onError()
                 return
             }
-            
+                        
             self.view.onSucess(movies: movies)
           //  print("Total de dados: \(movies)")
             
@@ -55,6 +55,9 @@ class ListMoviesPresenter {
                 self.view.onError()
                 return
             }
+            
+            
+            
             
           self.view.listRefreshMovies(movies: moreMovies)
 
