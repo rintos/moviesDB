@@ -40,10 +40,10 @@ class MoviesFavoriteViewController: UIViewController {
         movieFavoriteTableView.reloadData()
         configTabBar()
         
-        for item in years {
-            print("Anos Selecionados que foi retornado para a tela de favoritos: \(item)")
-        }
-        configPresenter()
+//        for item in years {
+//            print("Anos Selecionados que foi retornado para a tela de favoritos: \(item)")
+//        }
+      //  configPresenter()
 
     }
     
@@ -78,7 +78,7 @@ class MoviesFavoriteViewController: UIViewController {
         self.hasfilter = true
         
         if years.count > 0 {
-            self.listFavorites = FilterManager.setYearFilter(self.listFavorites, years)
+            self.listMovies = FilterManager.setYearFilter(self.listMovies, years)
         }
         
         movieFavoriteTableView.reloadData()

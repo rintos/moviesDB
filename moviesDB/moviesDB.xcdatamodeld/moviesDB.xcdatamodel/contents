@@ -9,8 +9,9 @@
         <attribute name="poster_path" attributeType="String"/>
         <attribute name="release_date" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Movies" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Movies" positionX="-63" positionY="-18" width="128" height="178"/>
     </elements>
 </model>

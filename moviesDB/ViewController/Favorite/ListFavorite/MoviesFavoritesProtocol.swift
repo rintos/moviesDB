@@ -20,7 +20,13 @@ extension MoviesFavoriteViewController: MoviesFavoriteView {
     
     func onSucess(movies: [Movies]) {
         self.listMovies = movies
+        
+        if hasfilter {
+            setFilter(self.listMovies, years)
+        }
+        
         movieFavoriteTableView.reloadData()
+        
     }
     
     

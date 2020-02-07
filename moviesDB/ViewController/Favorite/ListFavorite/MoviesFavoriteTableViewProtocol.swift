@@ -26,6 +26,7 @@ extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSour
 //        guard let genres = fav.genres as? [String] else { return cell}
 //        cell.configCell(fav)
         let fav = self.listMovies[indexPath.row]
+        print("data do filme salvo:\(String(describing: fav.year))")
         cell.configCell(fav)
         
             

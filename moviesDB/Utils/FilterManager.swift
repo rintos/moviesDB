@@ -17,7 +17,7 @@ struct FilterManager {
         var sortedMovies: [Movies] = []
         
         for year in years {
-            let typeSorted = movies.filter({ $0.release_date == year })
+            let typeSorted = movies.filter({ $0.year == year })
             
             for type in typeSorted {
                 sortedMovies.append(type)

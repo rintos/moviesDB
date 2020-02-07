@@ -32,12 +32,24 @@ class MovieDAO: NSObject {
         
 //print("\(movie.original_title)")
         
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+//        let date = dateFormatter.date(from: strDate)
+//        let date = DateFormatter()
+        
         let id = String(movie.id)
         let title = movie.title
         let overview = movie.overview
         let date = movie.release_date
         let posterPath = movie.poster_path
         let genre = genres as NSObject
+        
+        let year = date.prefix(4)
+        
+//        let dateFormartter = DateFormatter()
+//        dateFormartter.dateFormat = "yyyy'-'MM'-'dd"
+//        let datee = dateFormartter.date(from: date)
+        
 
         
         movieObject?.setValue(id, forKey: "id_API")
@@ -47,6 +59,7 @@ class MovieDAO: NSObject {
         movieObject?.setValue(posterPath, forKey: "poster_path")
         movieObject?.setValue(idCoredata, forKey: "id")
         movieObject?.setValue(genre, forKey: "genres")
+        movieObject?.setValue(year, forKey: "year")
         
 //        movieObject?.setValue("234234234", forKey: "id_API")
 //        movieObject?.setValue("title", forKey: "title")
