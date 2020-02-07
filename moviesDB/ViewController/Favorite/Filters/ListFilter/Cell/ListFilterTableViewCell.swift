@@ -11,6 +11,7 @@ import UIKit
 class ListFilterTableViewCell: UITableViewCell {
 
     @IBOutlet weak var genresLabel: UILabel!
+    @IBOutlet weak var checkImageView: UIImageView!
     
     
     
@@ -22,7 +23,11 @@ class ListFilterTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        if selected {
+            checkImageView.image = UIImage.init(systemName: "checkmark")
+        } else {
+            checkImageView.image = UIImage.init(systemName: "rectangle")
+        }
     }
     
 }

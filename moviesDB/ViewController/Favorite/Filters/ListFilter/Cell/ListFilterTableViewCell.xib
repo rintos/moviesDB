@@ -16,22 +16,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IA9-o7-1E2">
-                        <rect key="frame" x="16" y="15" width="288" height="67"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jUl-se-OwX">
+                        <rect key="frame" x="15" y="27" width="50" height="50"/>
+                        <color key="tintColor" red="0.15294117647058825" green="0.4823529411764706" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="3W0-7I-nkV"/>
+                            <constraint firstAttribute="height" constant="50" id="kZn-QL-bzE"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IA9-o7-1E2">
+                        <rect key="frame" x="74" y="15" width="230" height="67"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="IA9-o7-1E2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Mmz-BE-1Yt"/>
+                    <constraint firstAttribute="bottom" secondItem="jUl-se-OwX" secondAttribute="bottom" constant="20" id="SkF-AU-4i6"/>
+                    <constraint firstItem="jUl-se-OwX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="cq5-OP-44u"/>
                     <constraint firstAttribute="bottom" secondItem="IA9-o7-1E2" secondAttribute="bottom" constant="15" id="cyE-on-uOe"/>
                     <constraint firstItem="IA9-o7-1E2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="hOb-ce-gXk"/>
                     <constraint firstAttribute="trailing" secondItem="IA9-o7-1E2" secondAttribute="trailing" constant="16" id="nqS-mN-tzR"/>
+                    <constraint firstItem="IA9-o7-1E2" firstAttribute="leading" secondItem="jUl-se-OwX" secondAttribute="leading" id="qxY-bc-MIJ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="checkImageView" destination="jUl-se-OwX" id="LiF-yC-Kqh"/>
                 <outlet property="genresLabel" destination="IA9-o7-1E2" id="uZr-zT-vLa"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="107.47767857142857"/>

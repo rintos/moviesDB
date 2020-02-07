@@ -12,14 +12,35 @@ class FilterMoviesViewController: UIViewController {
     
     @IBOutlet weak var filterTypeTableView: UITableView!
     
+    
+   // var filterTypes: ((_ selectedTypes: [String])->())?
+   // var filter: [String] = []
+    var listGenreTypeFilter: [String] = []
+    var listYearTypeFilter: [String] = []
+    var filter: ((_ year: [String],_ genre:[String])-> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configTableView()
+        configTabBar()
         
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        for item in listGenreTypeFilter {
+            print("Os generos selecionado foram: \(item)")
+        }
+        for item in listYearTypeFilter {
+            print("Os anos selecionados: \(item)")
+        }
+        
+    }
+    
+    func configTabBar() {
+        self.tabBarController?.tabBar.isHidden = true
+    }
     
     
     func configTableView(){
@@ -31,14 +52,12 @@ class FilterMoviesViewController: UIViewController {
         filterTypeTableView.reloadData()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func doneFilter(_ sender: Any) {
+        filter?(listYearTypeFilter,listGenreTypeFilter)
+        navigationController?.popViewController(animated: true)
     }
-    */
+    
+    
+
 
 }

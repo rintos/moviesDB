@@ -58,16 +58,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q9e-GP-TTd">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="780"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjd-Y7-ohW">
+                                <rect key="frame" x="10" y="834" width="394" height="30"/>
+                                <state key="normal" title="Apply Filter"/>
+                                <connections>
+                                    <action selector="doneFilter:" destination="B6D-r6-CIx" eventType="touchUpInside" id="mgu-CK-wjE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Q9e-GP-TTd" firstAttribute="leading" secondItem="h9u-GE-uzV" secondAttribute="leading" id="HAU-kv-EEi"/>
-                            <constraint firstItem="Q9e-GP-TTd" firstAttribute="bottom" secondItem="h9u-GE-uzV" secondAttribute="bottom" id="O5s-yU-XDl"/>
+                            <constraint firstItem="jjd-Y7-ohW" firstAttribute="leading" secondItem="h9u-GE-uzV" secondAttribute="leading" constant="10" id="MQY-AU-TT7"/>
                             <constraint firstItem="Q9e-GP-TTd" firstAttribute="trailing" secondItem="h9u-GE-uzV" secondAttribute="trailing" id="Wlr-SO-TQq"/>
                             <constraint firstItem="Q9e-GP-TTd" firstAttribute="top" secondItem="h9u-GE-uzV" secondAttribute="top" id="XLk-lE-6Da"/>
+                            <constraint firstItem="h9u-GE-uzV" firstAttribute="trailing" secondItem="jjd-Y7-ohW" secondAttribute="trailing" constant="10" id="Ysj-2M-gdn"/>
+                            <constraint firstAttribute="bottom" secondItem="jjd-Y7-ohW" secondAttribute="bottom" constant="32" id="hES-GK-w0z"/>
+                            <constraint firstItem="jjd-Y7-ohW" firstAttribute="top" secondItem="Q9e-GP-TTd" secondAttribute="bottom" constant="10" id="yXd-mh-xTE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h9u-GE-uzV"/>
                     </view>
@@ -87,21 +97,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VXr-WZ-qG9">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VXr-WZ-qG9">
+                                <rect key="frame" x="0.0" y="106" width="414" height="756"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0T-YI-X4s">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="qIa-AJ-S8g"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="mL4-WB-buw">
+                                        <barButtonItem key="leftBarButtonItem" title="Volar Filtro" id="z0P-Lq-J9F">
+                                            <connections>
+                                                <action selector="backFilterButton:" destination="KVd-lw-8sV" id="Wsy-sf-QB5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="VXr-WZ-qG9" firstAttribute="trailing" secondItem="Ppy-A4-sLv" secondAttribute="trailing" id="7ta-hc-3rI"/>
-                            <constraint firstItem="VXr-WZ-qG9" firstAttribute="top" secondItem="Ppy-A4-sLv" secondAttribute="top" id="Ik5-FP-X73"/>
+                            <constraint firstItem="v0T-YI-X4s" firstAttribute="top" secondItem="2mm-dm-Qx0" secondAttribute="top" symbolic="YES" id="BTP-to-QxH"/>
+                            <constraint firstItem="VXr-WZ-qG9" firstAttribute="top" secondItem="v0T-YI-X4s" secondAttribute="bottom" constant="26" id="D7E-ZC-2w4"/>
                             <constraint firstItem="VXr-WZ-qG9" firstAttribute="bottom" secondItem="Ppy-A4-sLv" secondAttribute="bottom" id="TaK-7Q-L8m"/>
+                            <constraint firstItem="Ppy-A4-sLv" firstAttribute="trailing" secondItem="v0T-YI-X4s" secondAttribute="trailing" id="UAj-Sd-eH0"/>
+                            <constraint firstItem="v0T-YI-X4s" firstAttribute="leading" secondItem="2mm-dm-Qx0" secondAttribute="leading" symbolic="YES" id="fvI-TL-Eik"/>
                             <constraint firstItem="VXr-WZ-qG9" firstAttribute="leading" secondItem="Ppy-A4-sLv" secondAttribute="leading" id="vWh-q6-fT1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ppy-A4-sLv"/>
                     </view>
                     <connections>
+                        <outlet property="filtroVoltarButton" destination="z0P-Lq-J9F" id="NQQ-6c-Jx8"/>
                         <outlet property="listFilterTableView" destination="VXr-WZ-qG9" id="doC-Ix-DDq"/>
                     </connections>
                 </viewController>

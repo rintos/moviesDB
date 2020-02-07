@@ -24,16 +24,24 @@ class MoviesFavoriteViewController: UIViewController {
         
       //  MovieDAO().setupMovies()
         movieFavoriteTableView.reloadData()
+        configTabBar()
         
 
     }
+    
 
     override func viewDidAppear(_ animated: Bool) {
         movieFavoriteTableView.reloadData()
+        configTabBar()
+
     }
     
     func setupCoreData() {
         self.listFavorites = MovieDAO().getFavoriteMovies()
+    }
+    
+    func configTabBar() {
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func configTableView(){

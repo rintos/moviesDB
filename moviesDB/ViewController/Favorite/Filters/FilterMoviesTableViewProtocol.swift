@@ -30,6 +30,18 @@ extension FilterMoviesViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let filterViewController = goToViewWithPushNavController(storyboard: "Favorite", identifier: "ListFilterViewController") as? ListFilterViewController
+        if MovieManagerConstants.listTypes[indexPath.row] == "0" {
+            filterViewController?.listTypeFilter = MovieManagerConstants.movieDate
+            filterViewController?.filtersTypes = { years in
+                self.listYearTypeFilter = years
+            }
+        }
+        if MovieManagerConstants.listTypes[indexPath.row] == "1" {
+            filterViewController?.listTypeFilter = MovieManagerConstants.movieGenre
+            filterViewController?.filtersTypes = { genres in
+                self.listGenreTypeFilter = genres
+            }
+        }
   
     }
     
