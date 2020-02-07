@@ -12,24 +12,22 @@ import CoreData
 extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.listFavorites = MovieDAO().getFavoriteMovies()
-        return self.listFavorites.count
-       // return self.favorites.count
+//        self.listFavorites = MovieDAO().getFavoriteMovies()
+//        return self.listFavorites.count
+        return self.listMovies.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieTableViewID", for: indexPath) as! MovieTableViewCell
         
-        let favorited = MovieDAO().getFavoriteMovies()
-        let fav = favorited[indexPath.row]
-        print("filme: \(fav.title)")
-        guard let genres = fav.genres as? [String] else { return cell}
-        for genre in genres {
-            print("com generos: \(genre)")
-        }
-
+//        let favorited = MovieDAO().getFavoriteMovies()
+//        let fav = favorited[indexPath.row]
+//        guard let genres = fav.genres as? [String] else { return cell}
+//        cell.configCell(fav)
+        let fav = self.listMovies[indexPath.row]
         cell.configCell(fav)
+        
             
         return cell
     }
@@ -41,11 +39,11 @@ extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            let movies = MovieDAO().getFavoriteMovies()
-            let movieSelected = movies[indexPath.row]
+            //let movies = MovieDAO().getFavoriteMovies()
+            let movieSelected = self.listMovies[indexPath.row]
             MovieDAO().deleteMovie(movie: movieSelected)
             MovieDAO().updateContext()
-            movieFavoriteTableView.reloadData()
+            configPresenter()
 
         }
         
@@ -58,7 +56,7 @@ extension MoviesFavoriteViewController: UITableViewDelegate, UITableViewDataSour
             movieFavoriteTableView.deleteRows(at: [indexpath], with: .fade)
             break
         default:
-            movieFavoriteTableView.reloadData()
+            configPresenter()
         }
     }
     
