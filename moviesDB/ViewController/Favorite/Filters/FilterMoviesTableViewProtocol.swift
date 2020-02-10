@@ -32,14 +32,16 @@ extension FilterMoviesViewController: UITableViewDelegate, UITableViewDataSource
         let filterViewController = goToViewWithPushNavController(storyboard: "Favorite", identifier: "ListFilterViewController") as? ListFilterViewController
         if MovieManagerConstants.listTypes[indexPath.row] == "0" {
             filterViewController?.listTypeFilter = MovieManagerConstants.movieDate
-            filterViewController?.filtersTypes = { years in
+            filterViewController?.filtersTypes = { years,filterStatus in
                 self.listYearTypeFilter = years
+                self.hasFilterIsEnable = filterStatus
             }
         }
         if MovieManagerConstants.listTypes[indexPath.row] == "1" {
             filterViewController?.listTypeFilter = MovieManagerConstants.movieGenre
-            filterViewController?.filtersTypes = { genres in
+            filterViewController?.filtersTypes = { genres, filterStatus in
                 self.listGenreTypeFilter = genres
+                self.hasFilterIsEnable = filterStatus
             }
         }
   

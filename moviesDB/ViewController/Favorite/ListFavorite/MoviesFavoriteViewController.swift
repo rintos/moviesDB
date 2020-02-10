@@ -12,6 +12,8 @@ class MoviesFavoriteViewController: UIViewController {
 
     @IBOutlet weak var movieFavoriteTableView: UITableView!
     
+    @IBOutlet weak var filterButtonStatus: UIBarButtonItem!
+    
     
     let constants = MovieManagerConstants.self
     
@@ -32,6 +34,7 @@ class MoviesFavoriteViewController: UIViewController {
        // movieFavoriteTableView.reloadData()
         configTabBar()
         configPresenter()
+        
         
 
     }
@@ -64,6 +67,14 @@ class MoviesFavoriteViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    func configButton() {
+        //pencil.circle.fill
+        
+        let image = UIImage.init(systemName: "pencil.circle.fill")
+        
+        filterButtonStatus.image = image
+    }
+    
     func configTableView(){
         
         movieFavoriteTableView.delegate = self
@@ -76,6 +87,9 @@ class MoviesFavoriteViewController: UIViewController {
     func setFilter(_ movies: [Movies],_ years: [String]) {
         
        // self.hasfilter = true
+        if hasfilter {
+            configButton()
+        }
         
         if years.count > 0 {
             self.listMovies = FilterManager.setYearFilter(self.listMovies, years)
@@ -93,18 +107,33 @@ class MoviesFavoriteViewController: UIViewController {
 
     @IBAction func filterButton(_ sender: Any) {
         
-        hasfilter = true
+       // hasfilter = true
         
         let storyboard = UIStoryboard(name: "Favorite", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "FilterMoviesViewController") as! FilterMoviesViewController
-        viewController.filter = { yearType, genreType in
+        viewController.filter = { yearType, genreType, filterStatus in
             self.years = yearType
             self.genres = genreType
+            self.hasfilter = filterStatus
         }
         
         navigationController?.pushViewController(viewController, animated: true)
         
     }
+    
+    
+    
+    @IBAction func clearFilter(_ sender: Any) {
+        hasfilter = false
+        
+        let image = UIImage.init(systemName: "pencil.circle")
+               
+        filterButtonStatus.image = image
+        
+        configPresenter()
+        movieFavoriteTableView.reloadData()
+    }
+    
     
     
 }

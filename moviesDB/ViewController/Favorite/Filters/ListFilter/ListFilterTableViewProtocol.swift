@@ -25,6 +25,7 @@ extension ListFilterViewController: UITableViewDelegate, UITableViewDataSource {
         let type = self.listTypeFilter[indexPath.row]
         print("Tipo selecionado:\(type)")
         self.selectedTypes.append(type)
+        self.hasFilterIsEnable = true
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

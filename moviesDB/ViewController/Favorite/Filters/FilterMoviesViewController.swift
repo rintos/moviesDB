@@ -12,19 +12,24 @@ class FilterMoviesViewController: UIViewController {
     
     @IBOutlet weak var filterTypeTableView: UITableView!
     
+    @IBOutlet weak var filterButton: UIBarButtonItem!
+    
+    
     
    // var filterTypes: ((_ selectedTypes: [String])->())?
    // var filter: [String] = []
     var listGenreTypeFilter: [String] = []
     var listYearTypeFilter: [String] = []
-    var filter: ((_ year: [String],_ genre:[String])-> ())?
+    var filter: ((_ year: [String],_ genre:[String],_ hasFilterIsEnable: Bool)-> ())?
+    var hasFilterIsEnable: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configTableView()
         configTabBar()
-        
+        configNavigationButton()
+                
     }
     
     
@@ -42,6 +47,10 @@ class FilterMoviesViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    func configNavigationButton() {
+        navigationItem.rightBarButtonItem = filterButton
+        navigationItem.rightBarButtonItem?.isEnabled = true
+    }
     
     func configTableView(){
 
@@ -53,7 +62,7 @@ class FilterMoviesViewController: UIViewController {
     }
 
     @IBAction func doneFilter(_ sender: Any) {
-        filter?(listYearTypeFilter,listGenreTypeFilter)
+        filter?(listYearTypeFilter,listGenreTypeFilter, hasFilterIsEnable)
         navigationController?.popViewController(animated: true)
     }
     

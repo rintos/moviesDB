@@ -35,13 +35,21 @@
                         <viewLayoutGuide key="safeArea" id="hDU-G5-mqF"/>
                     </view>
                     <navigationItem key="navigationItem" id="Frd-6L-OZu">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="pencil.and.ellipsis.rectangle" catalog="system" id="84r-zm-1lh">
-                            <connections>
-                                <action selector="filterButton:" destination="Z9y-Gm-53G" id="I2w-eO-B1p"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="pencil.circle" catalog="system" id="84r-zm-1lh">
+                                <connections>
+                                    <action selector="filterButton:" destination="Z9y-Gm-53G" id="I2w-eO-B1p"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="limpar filtro" id="LZT-Yx-HB7">
+                                <connections>
+                                    <action selector="clearFilter:" destination="Z9y-Gm-53G" id="RY1-lo-MhM"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="filterButtonStatus" destination="84r-zm-1lh" id="cWY-eW-whN"/>
                         <outlet property="movieFavoriteTableView" destination="zzH-i2-doI" id="puo-dm-zNK"/>
                     </connections>
                 </viewController>
@@ -68,6 +76,15 @@
                                     <action selector="doneFilter:" destination="B6D-r6-CIx" eventType="touchUpInside" id="mgu-CK-wjE"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hg4-hD-b42">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="N7h-dO-sA4">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="pencil.and.ellipsis.rectangle" catalog="system" id="H8X-ex-p9H"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -82,6 +99,7 @@
                         <viewLayoutGuide key="safeArea" id="h9u-GE-uzV"/>
                     </view>
                     <connections>
+                        <outlet property="filterButton" destination="H8X-ex-p9H" id="o0B-dI-ik6"/>
                         <outlet property="filterTypeTableView" destination="Q9e-GP-TTd" id="PSi-aP-qER"/>
                     </connections>
                 </viewController>
@@ -164,5 +182,6 @@
     </scenes>
     <resources>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
+        <image name="pencil.circle" catalog="system" width="64" height="60"/>
     </resources>
 </document>

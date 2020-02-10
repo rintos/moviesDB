@@ -20,9 +20,10 @@ class ListFilterViewController: UIViewController {
     
     var listTypeFilter: [String] = []
     var selectedTypes: [String] = []
+    var hasFilterIsEnable: Bool = false
 
     
-    var filtersTypes: ((_ selectedTypes: [String])->())?
+    var filtersTypes: ((_ selectedTypes: [String], _ hasFilterIsEnable: Bool)->())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +64,7 @@ class ListFilterViewController: UIViewController {
 //    }
     
     @IBAction func backFilterButton(_ sender: Any) {
-        filtersTypes?(selectedTypes)
+        filtersTypes?(selectedTypes, hasFilterIsEnable)
         
         navigationController?.popViewController(animated: true)
         
