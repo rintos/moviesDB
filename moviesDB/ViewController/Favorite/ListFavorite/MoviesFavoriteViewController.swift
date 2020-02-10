@@ -40,10 +40,10 @@ class MoviesFavoriteViewController: UIViewController {
         movieFavoriteTableView.reloadData()
         configTabBar()
         
-//        for item in years {
-//            print("Anos Selecionados que foi retornado para a tela de favoritos: \(item)")
-//        }
-      //  configPresenter()
+        for item in years {
+            print("Anos Selecionados que foi retornado para a tela de favoritos: \(item)")
+        }
+        configPresenter()
 
     }
     
@@ -75,7 +75,7 @@ class MoviesFavoriteViewController: UIViewController {
     
     func setFilter(_ movies: [Movies],_ years: [String]) {
         
-        self.hasfilter = true
+       // self.hasfilter = true
         
         if years.count > 0 {
             self.listMovies = FilterManager.setYearFilter(self.listMovies, years)
@@ -84,9 +84,16 @@ class MoviesFavoriteViewController: UIViewController {
         movieFavoriteTableView.reloadData()
     }
     
+//    func setFiltersDefined(years: [String] = []){
+//        self.years = years
+//    
+//    }
+    
 
 
     @IBAction func filterButton(_ sender: Any) {
+        
+        hasfilter = true
         
         let storyboard = UIStoryboard(name: "Favorite", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "FilterMoviesViewController") as! FilterMoviesViewController
