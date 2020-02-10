@@ -84,7 +84,7 @@ class MoviesFavoriteViewController: UIViewController {
         movieFavoriteTableView.reloadData()
     }
     
-    func setFilter(_ movies: [Movies],_ years: [String]) {
+    func setFilter(_ movies: [Movies],_ years: [String],_ genres: [String] ) {
         
        // self.hasfilter = true
         if hasfilter {
@@ -93,6 +93,10 @@ class MoviesFavoriteViewController: UIViewController {
         
         if years.count > 0 {
             self.listMovies = FilterManager.setYearFilter(self.listMovies, years)
+        }
+        
+        if genres.count > 0 {
+            self.listMovies = FilterManager.setGenreFilter(self.listMovies, genres)
         }
         
         movieFavoriteTableView.reloadData()

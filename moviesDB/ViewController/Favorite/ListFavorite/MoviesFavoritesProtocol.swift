@@ -22,7 +22,7 @@ extension MoviesFavoriteViewController: MoviesFavoriteView {
         self.listMovies = movies
         
         if  hasfilter {
-            self.setFilter(self.listMovies, years)
+            self.setFilter(self.listMovies, years, genres)
         }
         
         movieFavoriteTableView.reloadData()

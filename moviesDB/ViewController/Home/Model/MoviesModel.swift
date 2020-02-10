@@ -81,5 +81,4 @@ struct MoviesModelFields: MoviesModel {
         release_date = ""
         favoriteHidden = false
     }
-    
 }
