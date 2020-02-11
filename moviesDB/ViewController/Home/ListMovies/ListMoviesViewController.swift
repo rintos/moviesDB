@@ -36,7 +36,7 @@ class ListMoviesViewController: UIViewController, UISearchBarDelegate {
         configRefreshControll()
         setupSearch()
 
-       
+       closeKeyboardOnOutsideTap()
         // Do any additional setup after loading the view.
     }
     

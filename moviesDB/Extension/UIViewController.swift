@@ -15,4 +15,16 @@ extension UIViewController {
         navigationController?.pushViewController(view, animated: animated!)
         return view
     }
+    
+    
+    
+    func closeKeyboardOnOutsideTap() {
+           let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+           tap.cancelsTouchesInView = false
+           view.addGestureRecognizer(tap)
+       }
+       
+       @objc private func dismissKeyboard() {
+           view.endEditing(true)
+       }
 }

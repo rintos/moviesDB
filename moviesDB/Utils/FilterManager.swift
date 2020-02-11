@@ -30,50 +30,21 @@ struct FilterManager {
     static func setGenreFilter(_ movies: [Movies],_ genres: [String])-> [Movies] {
         
         var sortedMovies: [Movies] = []
-        var sortedGenres: [String] = []
-        
+                
         for genre in genres {
             for movie in movies {
                 let genreType = genre
-                let type = movie.genres as? [String]
-                //let typeSorted = type?.filter({ $0 == genreType})
-                 let typeSorted = type?.filter{$0 == genreType}
+                let types = movie.genres as! [NSObject]
+                let genreTypeobject = genreType as NSObject
                 
-                if let typesSorted = typeSorted{
-                    for types in typesSorted {
-//                        let typeObject = type as! Movies
-//                        sortedMovies.append(typeObject)
-                        sortedGenres.append(types)
+                for type in types {
+                    if type == genreTypeobject {
+                        sortedMovies.append(movie)
                     }
                 }
-                
-                
-                
-
             }
         }
-        
-//        for movie in movies {
-//            if let allGenres = movie.genres as? [String] {
-//
-//                for genre in genres {
-//                    let typeSorted = allGenres.filter({ $0 == genre })
-//                    let typeSortedObject = typeSorted as NSObject
-//
-//                    for type in typeSorted {
-//                        sortedGenres.append(type)
-//                    }
-//                }
-//            }
-        
         return sortedMovies
-
-        
-        
-        }
-    
-        
-        
-    
+    }
     
 }
