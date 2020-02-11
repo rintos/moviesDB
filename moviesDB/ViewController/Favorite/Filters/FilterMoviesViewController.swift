@@ -12,9 +12,6 @@ class FilterMoviesViewController: UIViewController {
     
     @IBOutlet weak var filterTypeTableView: UITableView!
     
-    @IBOutlet weak var filterButton: UIBarButtonItem!
-    
-    
     
    // var filterTypes: ((_ selectedTypes: [String])->())?
    // var filter: [String] = []
@@ -28,7 +25,6 @@ class FilterMoviesViewController: UIViewController {
 
         configTableView()
         configTabBar()
-        configNavigationButton()
                 
     }
     
@@ -45,11 +41,6 @@ class FilterMoviesViewController: UIViewController {
     
     func configTabBar() {
         self.tabBarController?.tabBar.isHidden = true
-    }
-    
-    func configNavigationButton() {
-        navigationItem.rightBarButtonItem = filterButton
-        navigationItem.rightBarButtonItem?.isEnabled = true
     }
     
     func configTableView(){

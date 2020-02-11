@@ -41,7 +41,7 @@ class ListMoviesViewController: UIViewController, UISearchBarDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
+        
     }
     
     func configPresenter(){

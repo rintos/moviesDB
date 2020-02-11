@@ -17,7 +17,6 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var yearMovieLabel: UILabel!
     @IBOutlet weak var genreMovieLabel: UILabel!
     @IBOutlet weak var overviewMovieText: UITextView!
-    @IBOutlet weak var saveMovieButton: UIButton!
     
     
     
@@ -56,6 +55,8 @@ class MovieDetailViewController: UIViewController {
     
     @objc func saveMovies(){
         MovieDAO().saveMovie(self.movies, self.listGenres)
+        
+        showAlert(message: "Filme foi salvo com sucesso")
     }
     
     func configLayout(){
@@ -87,12 +88,6 @@ class MovieDetailViewController: UIViewController {
         guard let  movie = movies else { return nil}
         return movie
     }
-    
-    
-    @IBAction func saveMovieButtonAction(_ sender: Any) {
-    
-    }
-
     /*
     // MARK: - Navigation
 
